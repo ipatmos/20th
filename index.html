@@ -78,7 +78,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-primary flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                     <div>
                         <h3 class="font-bold text-gray-800">일시</h3>
-                        <p class="text-gray-600">2025년 10월 27일 (월) 오후 6시 30분</p>
+                        <p class="font-bold text-primary">2025년 10월 27일 (월) 오후 6시 30분</p>
                     </div>
                 </div>
                 <div class="flex items-start">
@@ -112,10 +112,6 @@
                         카카오맵
                     </a>
                 </div>
-                <a id="addToCalendar" href="#" download="patmos-20th-anniversary.ics" class="w-full bg-accent text-white font-bold py-3 px-4 rounded-lg hover:bg-opacity-90 transition-colors duration-300 flex items-center justify-center !mt-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" /></svg>
-                    캘린더에 추가
-                </a>
             </section>
         </div>
 
@@ -224,37 +220,6 @@
             
             // --- Google Sheets 연동 설정 ---
             const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyXwLEf626h_DhAeiMciSR58V3vbgs2qDTtALA4GAWob5jP5JRSHWWqjJYb5vnV2wKq/exec'; 
-
-            // --- 캘린더에 추가 기능 (.ics 파일 생성) ---
-            const calendarLink = document.getElementById('addToCalendar');
-            
-            const eventDetails = {
-                title: '팻머스 문화선교회 창립 20주년 감사예배',
-                location: '서울 강남구 언주로65길 6, 청운교회 비전센터 10층',
-                description: '팻머스 문화선교회 20주년 감사예배에 초대합니다.\\n\\n일시: 2025년 10월 27일 (월) 오후 6시 30분',
-                // KST is UTC+9. 18:30 KST = 09:30 UTC. 21:30 KST = 12:30 UTC.
-                startUTC: '20251027T093000Z',
-                endUTC: '20251027T123000Z',
-            };
-
-            // .ics 파일 내용을 동적으로 생성
-            const icsContent = [
-                'BEGIN:VCALENDAR',
-                'VERSION:2.0',
-                'PRODID:-//Patmos//Invitation//KO',
-                'BEGIN:VEVENT',
-                `UID:${new Date().getTime()}@patmos.com`,
-                `DTSTAMP:${new Date().toISOString().replace(/[-:.]/g, '')}`,
-                `DTSTART:${eventDetails.startUTC}`,
-                `DTEND:${eventDetails.endUTC}`,
-                `SUMMARY:${eventDetails.title}`,
-                `DESCRIPTION:${eventDetails.description}`,
-                `LOCATION:${eventDetails.location}`,
-                'END:VEVENT',
-                'END:VCALENDAR'
-            ].join('\r\n');
-
-            calendarLink.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(icsContent);
             
             // --- RSVP 폼 조건부 로직 ---
             const form = document.getElementById('rsvp-form');

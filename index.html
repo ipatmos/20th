@@ -28,6 +28,7 @@
             --color-background: #FFF8E1; /* 매우 부드러운 크림색 배경 */
             --color-text-dark: #5D4037; /* 부드러운 다크 브라운 */
             --color-text-light: #757575; /* 중간 그레이 */
+            --color-navy: #2C3E50; /* 포인트 네이비 */
         }
         body {
             font-family: var(--font-main);
@@ -41,6 +42,7 @@
         .bg-accent { background-color: var(--color-accent); }
         .text-accent { color: var(--color-accent); }
         .border-primary { border-color: var(--color-primary); }
+        .text-navy { color: var(--color-navy); }
         
         .loader {
             border: 2px solid #f3f3f3;
@@ -70,9 +72,9 @@
             <header class="mb-8">
                 <img src="https://i.postimg.cc/t4905Nsb/2-4x.png" alt="팻머스 로고" class="w-24 h-auto mx-auto mb-6">
                 
-                <h1 class="text-2xl sm:text-3xl font-bold text-primary mb-2 leading-tight text-shadow-custom">
-                    팻머스문화선교회 창립 20주년 기념<br>
-                    <span class="text-4xl sm:text-5xl font-black tracking-tighter" style="font-family: sans-serif;">Home Coming Day</span>
+                <h1 class="text-2xl sm:text-3xl font-bold mb-2 leading-tight text-shadow-custom">
+                    <span class="text-navy">팻머스문화선교회 창립 20주년 기념</span><br>
+                    <span class="text-primary text-4xl sm:text-5xl font-black tracking-tighter" style="font-family: sans-serif;">Home Coming Day</span>
                 </h1>
             </header>
             
@@ -127,7 +129,9 @@
         <!-- RSVP 폼 섹션 -->
         <div class="bg-white rounded-2xl shadow-lg mt-8 p-6 sm:p-10">
             <h2 class="text-2xl font-bold text-center mb-2 text-primary">참석 알려주기 (RSVP)</h2>
-            <p class="text-center text-gray-600 mb-8">행사 준비에 큰 도움이 돼요! 아래 정보를 알려주세요.</p>
+            <p class="text-center text-gray-600 mb-8">
+                원활한 행사 준비를 위해 <strong class="font-semibold text-primary">2025년 10월 13일(월)</strong>까지<br>참석 여부를 알려주시면 정말 큰 도움이 돼요!
+            </p>
 
             <form id="rsvp-form" class="space-y-6">
                 <!-- 기본 정보 -->
@@ -327,6 +331,4 @@
     </script>
 </body>
 </html>
-
-
 
